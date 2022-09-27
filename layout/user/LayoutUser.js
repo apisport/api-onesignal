@@ -75,6 +75,16 @@ const LayoutUser = ({ children }) => {
                         name='viewport'
                         content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'
                     />
+                        <title>OneSignal + Next.js</title>
+                        <meta
+                            name="description"
+                            content="Integrating OneSignal with a Next.js app."
+                        />
+                        <link rel="icon" href="/favicon.ico" />
+                        <script
+                            src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+                            async=""
+                        ></script>
                 </Head>
                 <Navbar></Navbar>
                 {children}
@@ -100,7 +110,7 @@ const LayoutUser = ({ children }) => {
                         <a href='/mitra/home'><button className='btn btn-primary' >Lanjut ke halaman utama</button></a>
                     </div>
                 </>
-                
+
             )
         } else {
             return (

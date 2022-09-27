@@ -10,21 +10,40 @@ import useSWR from 'swr'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useSession, } from 'next-auth/react'
+import { useEffect } from 'react'
 
 
 export default function Home() {
+  useEffect(() => {
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+      OneSignal.init({
+        appId: "0c4137b9-da2c-47db-841d-4140b83f0410",
+        notifyButton: {
+          enable: true,
+        },
+
+        allowLocalhostAsSecureOrigin: true,
+      });
+    });
+
+    return () => {
+      window.OneSignal = undefined;
+    };
+  }, []);
   const [search, setSearch] = useState('')
   const { data: session, status } = useSession()
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
-  const { data: data, error } = useSWR('/api/homefavoritdb', fetcher, {refreshInterval: 1000})
+  const { data: data, error } = useSWR('/api/homefavoritdb', fetcher, { refreshInterval: 1000 })
 
   if (!data) {
-    return<div className="spinner"></div>
+    return <div className="spinner"></div>
   } else if (error) {
     return <div>Something went wrong</div>
   }
 
+  // 
 
   let rekomendasi = data['message']
   console.log('Agregate:')

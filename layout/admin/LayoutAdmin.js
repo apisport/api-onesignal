@@ -26,7 +26,7 @@ const LayoutAdmin = ({ children }) => {
 
     if (!data) {
         return (<> <div className="spinner"></div><div className='d-flex flex-row justify-content-center'>Loading...</div></>
-       )
+        )
     } else if (error) {
         return <div>Something went wrong</div>
     }
@@ -52,7 +52,7 @@ const LayoutAdmin = ({ children }) => {
                         <meta name="viewport" content="width=device-width"></meta>
                         <meta name="viewport" content="initial-scale=1.0"></meta>
                         <meta name="viewport" content="width=device-width"></meta>
-                        <meta name="viewport" content="user-scalable=no, width=device-width">
+                        <meta name="viewport" content="user-scalable=no, width=device-width" />
                         <meta name="application-name" content="PWA App" />
                         <meta name="apple-mobile-web-app-capable" content="yes" />
                         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -93,6 +93,7 @@ const LayoutAdmin = ({ children }) => {
                             name='viewport'
                             content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'
                         />
+                        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
                     </Head>
                     <Head>
                         <title>ApiSport</title>
