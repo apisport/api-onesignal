@@ -16,9 +16,21 @@ async function getAlamat(req, res) {
             .find({})
             .sort({ idMitra: -1 })
             .toArray();
+        let districts = await db
+            .collection('districts')
+            .find({})
+            .sort({ idMitra: -1 })
+            .toArray();
+        let villages = await db
+            .collection('villages')
+            .find({})
+            .sort({ idMitra: -1 })
+            .toArray();
         let hasil = {}
         hasil['provinces'] = provinces
         hasil['regencies'] = regencies
+        hasil['districts'] = districts
+        hasil['villages'] = villages
         // return the posts
         return res.json({
             message: JSON.parse(JSON.stringify(hasil)),
